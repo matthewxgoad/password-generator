@@ -22,11 +22,6 @@ function useUppercase(){
     uppercaseConfirm = confirm("Use UPPERCASE characters? OK to confirm or Cancel for No.");
     return uppercaseConfirm;
 }
-// This function prompts user to use or not use lowercase characters.
-function useLowercase(){
-    lowercaseConfirm = confirm("Use lowercase characters? OK to confirm or Cancel for No.");
-    return lowercaseConfirm;
-}
 // This function prompts user to use or not use numbers.
 function useNumbers(){
     numbersConfirm = confirm("Use lowercase characters? OK to confirm or Cancel for No.");
@@ -40,13 +35,13 @@ function useSpecialCharacters(){
 // Create a function to combine the input of previous prompts and generate random characters into the var password
 function generatePassword() {
     howLong();
+    // console.log("User wants " + howLong + "characters.");
     useUppercase();
-    useLowercase();
     useNumbers();
     useSpecialCharacters();
     var characters = ""
     var passwordLength = ""
-    
+
 }
 
 // Write password to the #password input

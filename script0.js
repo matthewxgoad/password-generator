@@ -1,12 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-const lowercase = [...'abcdefghijklmnopqrstuvwxyz'];
-const uppercase = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
-const numerals = [...'0123456789'];
-const specialCharacters = [...'!@#$%^&*()~-=_+,.{}'];
-
-
 function generatePassword() {
   // const lowercase = [...'abcdefghijklmnopqrstuvwxyz'];
   // const uppercase = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
