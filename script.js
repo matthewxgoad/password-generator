@@ -35,13 +35,46 @@ function useSpecialCharacters(){
 // Create a function to combine the input of previous prompts and generate random characters into the var password
 function generatePassword() {
     howLong();
-    // console.log("User wants " + howLong + "characters.");
     useUppercase();
     useNumbers();
     useSpecialCharacters();
-    var characters = ""
-    var passwordLength = ""
+    const lowercase = [...'abcdefghijklmnopqrstuvwxyz'];
+    const uppercase = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+    const numerals = [...'0123456789'];
+    const specialCharacters = [...'!@#$%^&*()~-=_+,.{}'];
+    
+    var characters = lowercase;
+    var password = ""
 
+    if (uppercaseConfirm && numbersConfirm && specialConfirm){
+        characters += uppercase + numerals + specialCharacters;
+      
+      }else if (uppercaseConfirm && numbersConfirm){
+        characters += uppercase + numerals;
+      
+      }else if (numbersConfirm && specialConfirm){
+        characters += numerals + specialCharacters;
+      
+      }else if (uppercaseConfirm && specialConfirm){
+        characters += uppercase + specialCharacters;
+      
+      }else if (uppercaseConfirm){
+        characters += uppercase;
+      
+      }else if(numbersConfirm){
+        characters += numerals;
+      
+      }else if (specialConfirm){
+        characters += specialCharacters;
+      
+      }else{
+        characters === lowercaseChar;
+      }
+      
+        for(var i = 0; i < passwordLength; i++){
+          password += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return password;
 }
 
 // Write password to the #password input
