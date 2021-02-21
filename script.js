@@ -7,13 +7,13 @@ function howLong(){
     passwordLength = prompt("How long would you like your password to be? (between 8-128 characters)");
         if( isNaN(passwordLength)){
             alert("Come on, dude. That's not a number.");
-         howLong;
+         howLong();
         }else if( passwordLength < 8 ){
             alert("That's too short, dummy. Password must be between 8-128 characters.");
          howLong();
         }else if( passwordLength > 128 ){
             alert("That's too dang long. Password must be between 8-128 characters.");
-         howLong;
+         howLong();
         }
         return passwordLength;
     }   
@@ -89,5 +89,11 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// Go the extra mile and add a Copy to Clipboard function?
-
+// Copy to Clipboard function
+function copy() {
+    var copyText = document.querySelector("#password");
+    copyText.select();
+    document.execCommand("copy");
+  }
+  
+  document.querySelector("#clipboardCopy").addEventListener("click", copy);
