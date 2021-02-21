@@ -1,6 +1,6 @@
 # password-generator
 
-![Deployed application.](screenshot-deployed-application.png)
+![Deployed application.](deployed-demo.gif)
 
 [Link to deployed application:](http://matthewxgoad.github.io/password-generator/)
 
