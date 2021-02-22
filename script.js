@@ -24,12 +24,12 @@ function useUppercase(){
 }
 // This function prompts user to use or not use numbers.
 function useNumbers(){
-    numbersConfirm = confirm("Use lowercase characters? OK to confirm or Cancel for No.");
+    numbersConfirm = confirm("Use number characters? OK to confirm or Cancel for No.");
     return numbersConfirm;
 }
 // This function prompts user to use or not use special characters.
 function useSpecialCharacters(){
-    specialConfirm = confirm("Use lowercase characters? OK to confirm or Cancel for No.");
+    specialConfirm = confirm("Use special characters? OK to confirm or Cancel for No.");
     return specialConfirm;
 }
 // Create a function to combine the input of previous prompts and generate random characters into the var password
@@ -38,13 +38,13 @@ function generatePassword() {
     useUppercase();
     useNumbers();
     useSpecialCharacters();
-    const lowercase = [...'abcdefghijklmnopqrstuvwxyz'];
-    const uppercase = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
-    const numerals = [...'0123456789'];
-    const specialCharacters = [...'!@#$%^&*()~-=_+,.{}'];
+    const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+    const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const numerals = '0123456789';
+    const specialCharacters = '!@#$%^&*()~-=_+.{}';
     
     var characters = lowercase;
-    var password = ""
+    var password = "";
 
     if (uppercaseConfirm && numbersConfirm && specialConfirm){
         characters += uppercase + numerals + specialCharacters;
@@ -66,22 +66,21 @@ function generatePassword() {
       
       }else if (specialConfirm){
         characters += specialCharacters;
-      
-      }else{
-        characters === lowercaseChar;
       }
-      
-        for(var i = 0; i < passwordLength; i++){
-          password += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-        return password;
+      function getRandomInt(maxBound) {
+        return Math.floor(Math.random()*maxBound)
+      }
+      for (let i = 0; i < passwordLength; i++) {
+        var randomIndex = getRandomInt(parseInt(characters.length))
+        password += characters[randomIndex]
+      }
+      return password;
 }
 
 // Write password to the #password input
 function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
-  // text area has a property called value, set it to the new password
     passwordText.value = password;
   
   }
